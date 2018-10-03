@@ -1,4 +1,4 @@
-package com.xhldtc;
+package com.problems;
 
 public class RemoveDuplicatesFromSortedList {
 

@@ -1,4 +1,4 @@
-package com.xhldtc;
+package com.problems;
 
 import java.util.HashMap;
 import java.util.Map;
