@@ -1,16 +1,8 @@
 package com.problems;
 
+import com.structure.TreeNode;
+
 public class SymmetricTree {
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public boolean isSymmetric(TreeNode root) {
         if (root == null) {

@@ -1,20 +1,12 @@
 package com.problems;
 
+import com.structure.TreeNode;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class BinaryTreeLevelOrderTraversalII {
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     private void traversal(TreeNode node, int depth, List<List<Integer>> list) {
         if (node == null) {
