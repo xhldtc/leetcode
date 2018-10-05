@@ -1,5 +1,6 @@
 package com.problems;
 
+import com.problems.v.ValidParentheses;
 import junit.framework.TestCase;
 
 public class ValidParenthesesTest extends TestCase {

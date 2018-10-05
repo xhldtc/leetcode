@@ -1,5 +1,6 @@
 package com.problems;
 
+import com.problems.t.TwoSum;
 import junit.framework.TestCase;
 
 import java.util.Arrays;

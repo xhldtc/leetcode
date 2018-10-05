@@ -1,5 +1,6 @@
 package com.problems;
 
+import com.problems.l.LongestCommonPrefix;
 import junit.framework.TestCase;
 
 public class LongestCommonPrefixTest extends TestCase {

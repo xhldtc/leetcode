@@ -1,5 +1,6 @@
 package com.problems;
 
+import com.problems.r.RomanToInteger;
 import junit.framework.TestCase;
 
 public class RomanToIntegerTest extends TestCase {

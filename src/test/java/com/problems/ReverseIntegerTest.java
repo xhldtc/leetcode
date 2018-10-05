@@ -1,5 +1,6 @@
 package com.problems;
 
+import com.problems.r.ReverseInteger;
 import junit.framework.TestCase;
 
 public class ReverseIntegerTest extends TestCase {
