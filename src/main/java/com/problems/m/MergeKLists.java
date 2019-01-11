@@ -2,6 +2,7 @@ package com.problems.m;
 
 import com.structure.ListNode;
 
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
@@ -13,15 +14,7 @@ public class MergeKLists {
         if (lists.length == 0) {
             return null;
         }
-        PriorityQueue<ListNode> queue = new PriorityQueue<>(lists.length, (l1, l2) -> {
-            if (l1.val > l2.val) {
-                return 1;
-            } else if (l1.val < l2.val) {
-                return -1;
-            } else {
-                return 0;
-            }
-        });
+        PriorityQueue<ListNode> queue = new PriorityQueue<>(lists.length, Comparator.comparingInt(l -> l.val));
         for (ListNode listNode : lists) {
             if (listNode != null) {
                 queue.offer(listNode);
