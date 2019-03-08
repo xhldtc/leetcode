@@ -13,10 +13,6 @@ public class ConvertSortedListToBinarySearchTree {
             return null;
         } else if (head.next == null) {
             return new TreeNode(head.val);
-        } else if (head.next.next == null) {
-            TreeNode root = new TreeNode(head.next.val);
-            root.left = new TreeNode(head.val);
-            return root;
         } else {
             ListNode slow = head;
             ListNode fast = head;
