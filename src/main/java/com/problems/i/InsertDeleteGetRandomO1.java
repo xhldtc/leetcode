@@ -1,0 +1,55 @@
+package com.problems.i;
+
+import java.util.*;
+
+public class InsertDeleteGetRandomO1 {
+
+    private Map<Integer, Integer> map;
+    private Random random = new Random();
+    private List<Integer> list;
+
+    /**
+     * Initialize your data structure here.
+     */
+    public InsertDeleteGetRandomO1() {
+        map = new HashMap<>();
+        list = new ArrayList<>();
+    }
+
+    /**
+     * Inserts a value to the set. Returns true if the set did not already contain the specified element.
+     */
+    public boolean insert(int val) {
+        if (!map.containsKey(val)) {
+            map.put(val, list.size());
+            list.add(val);
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Removes a value from the set. Returns true if the set contained the specified element.
+     */
+    public boolean remove(int val) {
+        if (map.containsKey(val)) {
+            int index = map.get(val);
+            int size = list.size();
+            map.remove(val);
+            int last = list.remove(size - 1);
+            if (index != size - 1) {
+                list.set(index, last);
+                map.put(last, index);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Get a random element from the set.
+     */
+    public int getRandom() {
+        return list.get(random.nextInt(list.size()));
+    }
+}
