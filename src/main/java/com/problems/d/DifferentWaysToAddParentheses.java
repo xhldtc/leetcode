@@ -11,26 +11,37 @@ public class DifferentWaysToAddParentheses {
         if (input.isEmpty()) {
             return Collections.emptyList();
         }
-        char c = input.charAt(0);
-        if (c == '-' || c == '+') {
-            input = "0" + input;
+        if (isDigit(input)) {
+            return Collections.singletonList(Integer.parseInt(input));
         }
-
-        List<Integer> nums = new ArrayList<>();
-        List<Character> ops = new ArrayList<>();
-        int base = 0;
+        List<Integer> res = new ArrayList<>();
         for (int i = 0; i < input.length(); i++) {
             char ch = input.charAt(i);
-            if (ch >= '0' && ch <= '9') {
-                base = base * 10 + ch - '0';
-            } else {
-                ops.add(ch);
-                nums.add(base);
-                base = 0;
+            if (ch == '+' || ch == '-' || ch == '*') {
+                List<Integer> left = diffWaysToCompute(input.substring(0, i));
+                List<Integer> right = diffWaysToCompute(input.substring(i + 1));
+                for (int a : left) {
+                    for (int b : right) {
+                        if (ch == '+')
+                            res.add(a + b);
+                        else if (ch == '-')
+                            res.add(a - b);
+                        else
+                            res.add(a * b);
+                    }
+                }
             }
         }
-        nums.add(base);
-        return calc(nums, ops);
+        return res;
+    }
+
+    boolean isDigit(String input) {
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) < '0' || input.charAt(i) > '9') {
+                return false;
+            }
+        }
+        return true;
     }
 
     List<Integer> calc(List<Integer> nums, List<Character> ops) {
