@@ -7,27 +7,27 @@ import java.util.List;
 public class TaskScheduler {
 
     public int leastInterval(char[] tasks, int n) {
-        if (n == 0)
-            return tasks.length;
         int[] count = new int[26];
-        for (char c : tasks)
-            count[c - 'A']++;
-        List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < count.length; i++) {
-            if (count[i] != 0)
-                list.add(count[i]);
+        int max = 0;
+        for (char ch : tasks) {
+            count[ch - 'A']++;
+            max = Math.max(count[ch - 'A'], max);
         }
-        list.sort(Comparator.reverseOrder());
-        int res = list.get(0) * (n + 1) - n;
-        int[] curr = new int[n + 1], next = new int[n + 1];
-        curr[n] = list.get(0) - 1;
-        for (int i = 1; i < list.size(); i++) {
-            int task = list.get(i);
-            for (int j = n; j >= 0; j--) {
-
+        int maxCount = 0, sum = 0;
+        for (int c : count) {
+            sum += c;
+            if (c == max) {
+                maxCount++;
             }
         }
 
-        return 0;
+        if (maxCount >= n + 1) {
+            return sum;
+        } else {
+            int len = (n + 1) * (max - 1) + maxCount;
+            int slot = (n + 1 - maxCount) * (max - 1);
+            int remain = sum - max * maxCount;
+            return slot >= remain ? len : len + remain - slot;
+        }
     }
 }
