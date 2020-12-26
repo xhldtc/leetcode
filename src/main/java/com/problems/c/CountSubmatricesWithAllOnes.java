@@ -36,8 +36,8 @@ public class CountSubmatricesWithAllOnes {
                         dp[i][j] = new int[]{mem[i][j][0], 1};
                     } else {
                         dp[i][j] = new int[]{
-                                Math.min(dp[i - 1][j - 1][0] + 1, mem[i][j][0]),
-                                Math.min(dp[i - 1][j - 1][1] + 1, mem[i][j][1]),
+                                Math.min(dp[i - 1][j - 1][0], mem[i][j][0] - 1) + 1,
+                                Math.min(dp[i - 1][j - 1][1], mem[i][j][1] - 1) + 1,
                         };
                     }
                 }
