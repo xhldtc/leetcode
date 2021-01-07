@@ -1,5 +1,7 @@
 package com.problems.s;
 
+import com.structure.TreeNode;
+
 public class SumOfNodesWithEvenValuedGrandparent {
 
     int res = 0;
